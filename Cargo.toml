@@ -1,0 +1,39 @@
+[package]
+name = "casper-proof"
+version = "0.1.0"
+edition = "2021"
+description = "A utility to derive public key from Casper secret key PEM files, sign messages, and verify signatures."
+homepage = "https://github.com/matsuro-hadouken/casper-proof"
+repository = "https://github.com/matsuro-hadouken/casper-proof"
+license = "MIT"
+authors = ["Matsuro Hadouken matsuro-hadouken@protonmail.com"]
+keywords = ["cryptography", "casper", "signature", "ed25519", "secp256k1"]
+categories = ["cryptography", "security"]
+
+[dependencies]
+# PEM file parsing
+pem = "3.0.4"
+
+# Ed25519 digital signature algorithm
+ed25519-dalek = "2.1.1"
+
+# Hex encoding and decoding
+hex = "0.4.3"
+
+# Colored terminal output
+colored = "2.0"
+
+# Secp256k1 elliptic curve library
+secp256k1 = "0.29.0"
+
+# Command-line argument parsing
+clap = { version = "4.5.11", features = ["derive"] }
+
+# SHA-2 hash functions
+sha2 = "0.10.8"
+
+[profile.release]
+lto = "fat"
+opt-level = "z"
+panic = "abort"
+codegen-units = 1
