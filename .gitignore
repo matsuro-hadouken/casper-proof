@@ -1,0 +1,16 @@
+/casper-proof
+target/
+
+.vscode/
+*.code-workspace
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.log
+
+backup.*
+
+*.session

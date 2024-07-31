@@ -40,7 +40,7 @@ Public Address: 0203b ... a3fc
 ```
 ```bash
 # Sign text message
-./casper-proof --pem-path keys/secp256k1/secret_key.pem --text "This address is belong to me"
+./casper-proof --pem-path keys/secp256k1/secret_key.pem --text 'This address is belong to me'
 ```
 ```
 ===== Signature =====
@@ -51,7 +51,7 @@ Signature: 4bd4a ... 0e73
 ```
 ```bash
 # Validate signature
-./casper-proof --pub-key 0203...a3fc --signature 4bd4...0e73 --text "This address is belong to me"
+./casper-proof --pub-key 0203...a3fc --signature 4bd4...0e73 --text 'This address is belong to me'
 ```
 ```
 Signature is valid.
