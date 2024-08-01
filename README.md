@@ -19,7 +19,7 @@ This is `console-client` tool which provide multiple functionalities and accept 
 
       --pem-path <FILE>  Specifies the path to the secret key PEM file
       --text <TEXT>      The text message to sign or verify
-      --file <FILE>      The path to a file whose content will be signed or verified ( accept valid UTF-8 format only )
+      --file <FILE>      The path to a file ( limit to 1MB ) whose content will be signed or verified
       --pub-key <HEX>    The public key for verification in hex format
       --signature <HEX>  The signature to verify in hex format
       --help             Print help
@@ -39,7 +39,7 @@ Public Address: 0203b ... a3fc
 ===================================
 ```
 ```bash
-# Sign text message
+# Sign text message ( use single quotation )
 ./casper-proof --pem-path keys/secp256k1/secret_key.pem --text 'This address is belong to me'
 ```
 ```
@@ -50,14 +50,14 @@ Signature: 4bd4a ... 0e73
 =====================
 ```
 ```bash
-# Validate signature
+# Validate signature  ( use single quotation )
 ./casper-proof --pub-key 0203...a3fc --signature 4bd4...0e73 --text 'This address is belong to me'
 ```
 ```
 Signature is valid.
 ```
 ```bash
-# sing message written in file ( accept valid UTF-8 format only )
+# sing message written in file ( limit to 1MB )
 ./casper-proof --pem-path keys/secp256k1/secret_key.pem --file file.txt
 ```
 ```
@@ -68,7 +68,7 @@ Signature: 6440...13d4
 =====================
 ```
 ```bash
-# verify message in file
+# verify message in file ( limit to 1MB )
 ./casper-proof --pub-key 0203...a3fc --file file.txt --signature 6440...13d4
 ```
 ```

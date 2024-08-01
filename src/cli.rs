@@ -1,8 +1,22 @@
 use clap::{Arg, Command};
 
 pub fn build_cli() -> Command {
-    Command::new("casper-keys")
+    Command::new("casper-proof")
         .about("Utility to derive public key from Casper secret key PEM files, sign messages, and verify signatures")
+        .long_about(
+            "Utility to derive public key from Casper secret key PEM files, sign messages, and verify signatures\n\n\
+             Usage Examples:\n\n\
+             # Providing only private key path will print PEM overview\n\
+             casper-proof --pem-path path/to/secret_key.pem\n\n\
+             # Sign text message, use single quotation\n\
+             casper-proof --pem-path path/to/secret_key.pem --text '<TEXT>'\n\n\
+             # Validate signature, use single quotation\n\
+             casper-proof --pub-key <PUBLIC HEX ADDRESS> --signature <SIGNATURE> --text '<TEXT>'\n\n\
+             # Sign message written in file\n\
+             casper-proof --pem-path /path/to/secret_key.pem --file /path/to/foo.bar\n\n\
+             # Verify message in file\n\
+             casper-proof --pub-key <PUBLIC HEX ADDRESS> --file /path/to/foo.bar --signature <SIGNATURE>\n"
+        )
         .arg(
             Arg::new("pem-path")
                 .long("pem-path")
@@ -42,6 +56,13 @@ pub fn build_cli() -> Command {
                 .help("The signature to verify in hex format")
                 .required(false)
                 .action(clap::ArgAction::Set),
+        )
+        .arg(
+            Arg::new("help")
+                .short('h')
+                .long("help")
+                .help("Print help")
+                .action(clap::ArgAction::Help)
         )
 }
 

@@ -11,6 +11,8 @@ keywords = ["cryptography", "casper", "signature", "ed25519", "secp256k1"]
 categories = ["cryptography", "security"]
 
 [dependencies]
+base64 = "0.22.1"
+
 # PEM file parsing
 pem = "3.0.4"
 
